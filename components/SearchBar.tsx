@@ -20,7 +20,7 @@ const SearchButton = ({otherClasses}: {otherClasses:string}) => (
 const SearchBar = () => {
     const [manufacturer, SetManufacturer] = useState('');
     const [model, setModel] = useState('');
-    const Router = useRouter();
+    const router = useRouter();
 
     const handleSearch = (e: React.FormEvent<HTMLFormElement>) =>{
       e.preventDefault();
@@ -40,9 +40,9 @@ const SearchBar = () => {
       if(manufacturer) searchParams.set('manufacturer',manufacturer)
       else searchParams.delete('manufacturer')
 
-      const newPathName = `${window.location.pathname}?${searchParams.toString()}`
+      const newPathname = `${window.location.pathname}?${searchParams.toString()}`
 
-      Router.push(newPathName)
+      router.push(newPathname)
     }
   return (
     <form className='searchbar' onSubmit={handleSearch}>
